@@ -1,0 +1,11 @@
+<div class="grid grid-cols-2 w-[550px] gap-x-7">
+  <div class="w-64">
+    <img [src]="menu.image" [alt]="menu.name">
+  </div>
+  <div class="flex flex-col">
+    <h2 class="text-xl leading-8 font-semibold">{{ menu.name }}</h2>
+    <p class="text-sm leading-5 font-semibold text-gray-500">{{ menu.restaurant.name }}</p>
+    <p class="mt-2 leading-6 text-gray-700 line-clamp-8">{{ menu.description }}</p>
+    <button class="mt-auto mr-auto px-2 py-2 rounded-md bg-red-600 hover:bg-red-700 text-white">Choose Here</button>
+  </div>
+</div>

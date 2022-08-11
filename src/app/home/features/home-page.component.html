@@ -22,7 +22,9 @@
           <div class="text-xl leading-7 font-semibold text-gray-600">
             Featured Clients
           </div>
-          <!-- <FeatureClientList></FeatureClientList> -->
+          <div class="pt-4">
+            <app-feature-client-list [clients]="clients"></app-feature-client-list>
+          </div>
         </div>
       </div>
     </div>
@@ -34,6 +36,14 @@
         height="480"
         class="object-cover w-[340px] h-[480px]"
       />
+    </div>
+  </div>
+  <div *ngIf="popularMenu">
+    <div class="pt-14 text-3xl leading-9 font-bold">
+      Popular Restaurant
+    </div>
+    <div class="pt-9">
+      <app-popular-menu [menu]="popularMenu"></app-popular-menu>
     </div>
   </div>
 </div>

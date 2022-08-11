@@ -8,6 +8,7 @@ import { IMenu } from 'src/api/interfaces/menu.interface';
 })
 export class PopularMenuComponent implements OnInit {
   @Input() menu!: IMenu;
+  @Input() onClick?: (args: IMenu) => void;
 
   constructor() {}
 

@@ -1,4 +1,4 @@
-<div>
+<div class="pb-3">
   <div class="flex justify-between">
     <div class="mt-16 text-center px-2 md:text-left md:px-0">
       <div class="text-6xl leading-none font-extrabold">Ha kin</div>
@@ -43,7 +43,7 @@
       Popular Restaurant
     </div>
     <div class="pt-9">
-      <app-popular-menu [menu]="popularMenu"></app-popular-menu>
+      <app-popular-menu [menu]="popularMenu" [onClick]="selectMenu"></app-popular-menu>
     </div>
   </div>
 </div>

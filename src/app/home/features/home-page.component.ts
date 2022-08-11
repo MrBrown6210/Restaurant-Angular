@@ -30,4 +30,8 @@ export class HomePageComponent implements OnInit {
       this.popularMenu = menu;
     });
   }
+
+  selectMenu(menu: IMenu) {
+    console.log('select menu:', menu);
+  }
 }

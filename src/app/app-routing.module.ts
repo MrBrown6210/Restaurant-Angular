@@ -7,6 +7,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./home/features/home.module').then((m) => m.HomeModule),
   },
+  {
+    path: 'restaurants',
+    loadChildren: () =>
+      import('./restaurant/features/restaurant.module').then(
+        (m) => m.RestaurantModule
+      ),
+  },
 ];
 
 @NgModule({

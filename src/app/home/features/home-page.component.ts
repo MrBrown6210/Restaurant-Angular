@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IClient } from 'src/api/interfaces/client.interface';
 import { IMenu } from 'src/api/interfaces/menu.interface';
 import { IRestaurant } from 'src/api/interfaces/restaurant.interface';
@@ -35,7 +35,6 @@ export class HomePageComponent implements OnInit {
 
   selectMenu(menu: IMenu) {
     console.log('select menu:', menu);
-    console.log(this.router);
-    this.router.navigate(['/restaurants', { id: menu.restaurant.id }]);
+    this.router.navigate([`/restaurants/${menu.restaurant.id}`]);
   }
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IMenu } from 'src/api/interfaces/menu.interface';
 
 @Component({
@@ -8,7 +8,7 @@ import { IMenu } from 'src/api/interfaces/menu.interface';
 })
 export class PopularMenuComponent implements OnInit {
   @Input() menu!: IMenu;
-  @Input() onClick?: (args: IMenu) => void;
+  @Output() onClick = new EventEmitter<IMenu>();
 
   constructor() {}
 

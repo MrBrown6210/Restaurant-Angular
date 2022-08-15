@@ -43,7 +43,7 @@
       Popular Restaurant
     </div>
     <div class="pt-9">
-      <app-popular-menu [menu]="popularMenu" [onClick]="selectMenu"></app-popular-menu>
+      <app-popular-menu [menu]="popularMenu" (onClick)="selectMenu($event)"></app-popular-menu>
     </div>
   </div>
 </div>

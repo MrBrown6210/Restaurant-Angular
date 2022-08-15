@@ -11,6 +11,13 @@ const routes: Routes = [
       import('./home/features/home.module').then((m) => m.HomeModule),
   },
   {
+    path: '',
+    loadChildren: () =>
+      import('./auth/features/auth-shell/auth-shell.module').then(
+        (m) => m.AuthShellModule
+      ),
+  },
+  {
     path: 'restaurants',
     loadChildren: () =>
       import('./restaurant/features/restaurant.module').then(

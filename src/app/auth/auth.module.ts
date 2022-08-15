@@ -7,5 +7,6 @@ import { JwtModule } from '@auth0/angular-jwt';
 @NgModule({
   providers: [AuthService, AuthGuard],
   imports: [CommonModule, JwtModule.forRoot({})],
+  declarations: [],
 })
 export class AuthModule {}

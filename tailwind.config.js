@@ -2,6 +2,9 @@
 module.exports = {
   content: ["./src/**/*.{html,ts}"],
   mode: "jit",
+  corePlugins: {
+    aspectRatio: false,
+  },
   theme: {
     extend: {
       lineClamp: {
@@ -12,5 +15,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/line-clamp")],
+  plugins: [
+    require("@tailwindcss/line-clamp"),
+    require("@tailwindcss/aspect-ratio"),
+  ],
 };

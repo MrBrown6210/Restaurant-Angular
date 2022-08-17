@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { firstValueFrom } from 'rxjs';
 import { IClient } from 'src/api/interfaces/client.interface';
 import { IMenu } from 'src/api/interfaces/menu.interface';
 import { IRestaurant } from 'src/api/interfaces/restaurant.interface';
@@ -31,6 +32,13 @@ export class HomePageComponent implements OnInit {
     this.restaurantService.getPopularMenu().subscribe((menu) => {
       this.popularMenu = menu;
     });
+  }
+
+  async gotoRandomRestaurant() {
+    const restaurant = await firstValueFrom(
+      this.restaurantService.getRandomRestaurant()
+    );
+    this.router.navigate(['restaurants', restaurant.id]);
   }
 
   selectMenu(menu: IMenu) {

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { IRestaurant } from 'src/api/interfaces/restaurant.interface';
+import { RestaurantServiceMock } from 'src/app/apis/restaurant/restaurant.service.mock';
 import { getRestaurants } from 'src/mocks/fixtures/restaurant';
 
 @Component({
@@ -9,14 +11,25 @@ import { getRestaurants } from 'src/mocks/fixtures/restaurant';
   styleUrls: ['./restaurant-page.component.scss'],
 })
 export class RestaurantPageComponent implements OnInit {
-  restaurant: IRestaurant = getRestaurants()[0];
+  restaurant?: IRestaurant;
 
   form = new FormGroup({
     name: new FormControl(''),
   });
-  constructor() {}
+  constructor(
+    private route: ActivatedRoute,
+    private restaurantService: RestaurantServiceMock
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((param) => {
+      this.restaurantService
+        .getRestaurant(param.get('id')!)
+        .subscribe((restaurant) => {
+          this.restaurant = restaurant;
+        });
+    });
+  }
 
   numSequence(number: Number) {
     return Array(number);

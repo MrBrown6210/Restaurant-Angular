@@ -10,6 +10,18 @@ import { IMenu } from 'src/api/interfaces/menu.interface';
 export class RestaurantService implements RestaurantServicePort {
   constructor(private httpClient: HttpClient) {}
 
+  getRandomRestaurant(): Observable<IRestaurant> {
+    return this.httpClient
+      .get<IRestaurant>('restaurants/random')
+      .pipe(tap((_) => console.log('fetched random restaurant')));
+  }
+
+  getRestaurant(id: string): Observable<IRestaurant> {
+    return this.httpClient
+      .get<IRestaurant>(`restaurants/${id}`)
+      .pipe(tap((_) => console.log('fetched random restaurant')));
+  }
+
   getRestaurants() {
     return this.httpClient
       .get<IRestaurant[]>('restaurants')

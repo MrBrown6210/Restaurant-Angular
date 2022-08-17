@@ -4,5 +4,9 @@
 </div>
 
 <div class="content px-28" role="main">
+  <!-- <form [formGroup]="form">
+    <input formControlName="name" type="text" placeholder="hello">
+  </form> -->
+  <div>{{ form.value | json }}</div>
   <router-outlet></router-outlet>
 </div>

@@ -1,8 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { AuthGuard } from './auth/auth.guard';
-import { AuthService } from './auth/auth.service';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
@@ -13,8 +10,8 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./auth/features/auth-shell/auth-shell.module').then(
-        (m) => m.AuthShellModule
+      import('./auth/features/login-page/login-page.module').then(
+        (m) => m.LoginPageModule
       ),
   },
   {
@@ -27,7 +24,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}

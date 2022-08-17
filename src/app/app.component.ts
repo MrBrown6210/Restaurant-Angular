@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { NavigationEnd, Router } from '@angular/router';
 
 @Component({
@@ -9,6 +10,10 @@ import { NavigationEnd, Router } from '@angular/router';
 export class AppComponent {
   title = 'travel-app';
   url: string = '';
+
+  form = new FormGroup({
+    name: new FormControl(''),
+  });
   constructor(private router: Router) {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {

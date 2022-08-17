@@ -8,7 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthServiceMock } from 'src/app/apis/auth/auth.service.mock';
+import { AuthService } from '../../auth.service';
 
 interface ILoginFormData {
   email: string | null;
@@ -32,19 +32,17 @@ export class LoginPageComponent implements OnInit {
     { updateOn: 'blur' }
   );
 
-  constructor(private authService: AuthServiceMock, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
 
-  onSubmit() {
+  async onSubmit() {
     this.formGroup.markAllAsTouched();
     if (this.formGroup.invalid) return;
-    this.authService
-      .login(this.formGroup.value.email!, this.formGroup.value.password!)
-      .subscribe((res) => {
-        localStorage.setItem('token', res.token);
-        this.router.navigate(['']);
-      });
-    alert('login to ....');
+    await this.authService.login(
+      this.formGroup.value.email!,
+      this.formGroup.value.password!
+    );
+    this.router.navigate(['']);
   }
 }

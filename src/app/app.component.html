@@ -1,6 +1,11 @@
 <!-- Toolbar -->
 <div *ngIf="shouldShowHeader()" class="pt-5 px-28" role="banner">
-  <img src="../assets/headers/logo.png" class="w-16 h-20" alt="logo">
+  <div class="flex justify-between items-center">
+    <img src="../assets/headers/logo.png" class="w-16 h-20" alt="logo">
+    <div>
+      <button (click)="logout()" class="p-2 rounded-md border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white">logout</button>
+    </div>
+  </div>
 </div>
 
 <div class="content px-28" role="main">

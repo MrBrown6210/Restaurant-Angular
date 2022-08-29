@@ -1,6 +1,8 @@
-# TravelApp
+# Restaurant - Ha Kin
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.6.
+
+![Cover](https://github.com/MrBrown6210/Restaurant-Angular/blob/505363ebc960f545afb91915c6c525287e58d583/docs/images/Cover.png)
 
 ## Development server
 
